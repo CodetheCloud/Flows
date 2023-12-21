@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>58.0</apiVersion>
+    <isExposed>true</isExposed>
+
+    <masterLabel>Export Phone numbers to CSV</masterLabel>
+    <description>This component is expected to available on the Phone Product record and it exports the related Phone Numbers records into a CSV file.</description>
+    <targets>
+        <target>lightning__FlowScreen</target>
+        <target>lightning__RecordPage</target>
+    </targets>
+
+    <targetConfigs>
+        <targetConfig targets="lightning__FlowScreen">
+            <property name="recordId" label="Phone Product Record Id" type="String" />
+        </targetConfig>
+    </targetConfigs>
+
+
+</LightningComponentBundle>
