@@ -1,0 +1,39 @@
+<template>
+
+
+
+    <div class="slds-m-bottom_small slds-page-header">
+
+        <div style="display :none">  
+            <p> this is hacky way of getting renderedcallback to work with @api recordId 
+            this has to be in page, even if not showw. Record Id = {recordId} </p>
+        </div>
+
+
+
+        <template if:true={completedLoading}> 
+
+
+            <template if:true={displayMsg}> 
+                <div class="slds-align_absolute-center" style="height:5rem">
+                    <lightning-icon icon-name="utility:success" alternative-text="Success" title="Success"></lightning-icon>
+                     &nbsp; Sync started see IO for details.
+                </div>
+            </template>
+            
+        
+            <template if:false={displayMsg}> 
+                <div class="slds-align_absolute-center" style="height:5rem">
+                    <lightning-icon icon-name="utility:error" alternative-text="Error" title="Error"></lightning-icon>
+                     &nbsp; Uh Oh! Sync has not started. Please check with Admin.
+                </div>
+            </template>
+
+
+        </template>
+
+
+        
+
+    </div>
+</template>
