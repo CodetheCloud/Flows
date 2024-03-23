@@ -73,8 +73,12 @@ export default class ExportPhoneProductRL extends LightningElement {
                         csvString += ',';
                     }
                     // If the column is undefined, it as blank in the CSV file.
-                    let value = this.data[i][rowKey] === undefined ? '' : this.data[i][rowKey];
+                    console.log('~~'+ this.data[i][rowKey]);
+                    let value = this.data[i][rowKey] === undefined ? '' : ''+this.data[i][rowKey].toString();
+                    console.log('17Jan debug = ' + value);
+
                     csvString += '"'+ value +'"';
+                    console.log('csvString = '+ csvString);
                     colValue++;
                 }
             }
@@ -96,7 +100,8 @@ export default class ExportPhoneProductRL extends LightningElement {
          let downloadElement = document.createElement('a');
  
          // This  encodeURI encodes special characters, except: , / ? : @ & = + $ # (Use encodeURIComponent() to encode these characters).
-         downloadElement.href = 'data:text/csv;charset=utf-8,' + encodeURI(csvString);
+         downloadElement.href = 'data:text/csv;charset=utf-8,' + encodeURIComponent(csvString);
+
          downloadElement.target = '_self';
          // CSV File Name
          downloadElement.download = 'Contact Data.csv';
